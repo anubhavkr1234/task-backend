@@ -13,7 +13,7 @@ app.use(cors());
 
 mongoose.connect(DB).then(()=>{
     console.log("Connection successful")
-}).catch((err)=>{console.log("Connection error")})
+}).catch((err)=>{console.log("Connection error"), console.log(err) })
 
 app.use('/',authRoute);
 app.use('/',taskRoute);

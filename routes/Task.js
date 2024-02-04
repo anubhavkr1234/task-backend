@@ -5,8 +5,6 @@ const jwt = require('jsonwebtoken');
 require('dotenv').config();
 const secretKey = process.env.SECRET_KEY;
 
-console.log(secretKey)
-
 router.get('/tasks', async (req, res) => {
     try {
         const token = req.headers.authorization.split(' ')[1]; // Extract token from request headers
@@ -46,6 +44,7 @@ router.post('/tasks', async (req, res) => {
     }
 });
 
+// update 
 router.patch('/tasks/:id', getTask, async (req, res) => {
     try {
         // Update task properties if provided in the request body
@@ -90,7 +89,7 @@ router.delete('/tasks/:id', getTask, async (req, res) => {
     }
 });
 
-
+// getTask 
 async function getTask(req, res, next) {
     let task;
     try {
@@ -109,6 +108,7 @@ async function getTask(req, res, next) {
     }
 }
 
+// update priority 
 router.patch('/tasks/priority/:id', getTask, async (req, res) => {
     try {
         const token = req.headers.authorization.split(' ')[1]; // Extract token from request headers
